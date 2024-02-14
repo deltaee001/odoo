@@ -1,0 +1,46 @@
+<odoo>
+    <data>
+
+        <record id="field_model_sale_order_line_x_length" model="ir.model.fields">
+            <field name="name">x_length</field>
+            <field name="field_description">Length</field>
+            <field name="model_id" ref="sale.model_sale_order_line"/>
+            <field name="ttype">float</field>
+        </record>
+
+        <record id="field_model_sale_order_line_x_width" model="ir.model.fields">
+            <field name="name">x_width</field>
+            <field name="field_description">Width</field>
+            <field name="model_id" ref="sale.model_sale_order_line"/>
+            <field name="ttype">float</field>
+        </record>
+
+        <record id="field_model_sale_order_line_x_pieces" model="ir.model.fields">
+            <field name="name">x_pieces</field>
+            <field name="field_description">Pieces</field>
+            <field name="model_id" ref="sale.model_sale_order_line"/>
+            <field name="ttype">float</field>
+        </record>
+
+        <record id="view_order_form_surcharge" model="ir.ui.view">
+        <field name="name">sale.order.form.view.surcharge</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+             <xpath expr="//field[@name='order_line']//tree//field[@name='product_uom_qty']" position="before">
+                <field name="x_width"/>
+                <field name="x_length"/>
+            </xpath>
+            <xpath expr="//field[@name='order_line']//tree//field[@name='product_uom_qty']" position="attributes">
+                <attribute name="string">unit feet</attribute>
+                <attribute name="readonly">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='order_line']//tree//field[@name='product_uom_qty']" position="after">
+                <field name="x_pieces" string="Quantity"/>
+            </xpath>
+        </field>
+    </record>
+
+
+    </data>
+</odoo>
