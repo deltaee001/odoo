@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-        <record id="model_surcharge_mapping" model="ir.model">
+        <record id="model_x_surcharge_mapping" model="ir.model">
             <field name="name">Surcharge Mapping</field>
             <field name="model">x_surcharge_mapping</field>
             <field name="state">manual</field>
@@ -8,7 +8,7 @@
 
         <record id="field_model_x_product_tmpl_id" model="ir.model.fields">
             <field name="name">x_product_tmpl_id</field>
-            <field name="model_id" ref="model_surcharge_mapping"/>
+            <field name="model_id" ref="model_x_surcharge_mapping"/>
             <field name="field_description">Product Template</field>
             <field name="ttype">many2one</field>
             <field name="relation">product.template</field>
@@ -16,14 +16,14 @@
 
         <record id="field_model_x_field_size" model="ir.model.fields">
             <field name="name">x_size</field>
-            <field name="model_id" ref="model_surcharge_mapping"/>
+            <field name="model_id" ref="model_x_surcharge_mapping"/>
             <field name="field_description">Size</field>
             <field name="ttype">float</field>
         </record>
 
         <record id="field_model_x_field_surcharge" model="ir.model.fields">
             <field name="name">x_surcharge</field>
-            <field name="model_id" ref="model_surcharge_mapping"/>
+            <field name="model_id" ref="model_x_surcharge_mapping"/>
             <field name="field_description">Surcharge</field>
             <field name="ttype">float</field>
         </record>
